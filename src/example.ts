@@ -7,7 +7,7 @@ concat('Hello ', 'World');
 interface MyHometask {
   howIDoIt: string;
   simeArray: (string | number)[];
-  withData: [{ howIDoIt: string; simeArray: (string | number)[] }];
+  withData?: MyHometask[];
 }
 
 const myHometask: MyHometask = {
@@ -19,9 +19,9 @@ const myHometask: MyHometask = {
 interface MyArray<T> {
   [N: number]: T;
 
-  reduce<U>(fn: (el: T, el2: T) => U): U;
+  reduce<U>(fn: (el: U, el2: T) => U, init: U): U;
 }
 
 const tsArray: MyArray<number> = [1, 2, 3, 4];
 
-tsArray.reduce((a, b) => a + b);
+tsArray.reduce((a, b) => a + b, 0);

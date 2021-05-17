@@ -1,0 +1,39 @@
+@import '../../variables';
+.root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+}
+
+.contentWrap {
+  display: flex;
+  margin-top: 120px;
+}
+
+.contentText {
+  width: 506px;
+}
+
+.contentText h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+}
+
+.contentText p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.contentParallax {
+  display: block;
+}
+
+.contentBtn {
+  width: 210px;
+  background: #73d677;
+  font-size: 23px;
+}

@@ -7,7 +7,7 @@ import style from './pokedex.module.scss';
 import { pokemons } from '../../pokemons';
 
 interface PokedexPageProps {
-  title?: string;
+  title: string;
 }
 
 const PokedexPage: React.FC<PokedexPageProps> = () => {

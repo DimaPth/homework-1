@@ -3,11 +3,35 @@ import Heading from '../heading';
 
 import s from './PokemonCard.module.scss';
 
-interface PokemonCardProps {
-  [pokemon: string]: any;
+interface Stats {
+  hp: number;
+  attack: number;
+  defense: number;
+  'special-attack': number;
+  'special-defense': number;
+  speed: number;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
+interface PokemonCardProps {
+  name_clean: string;
+  abilities: string[];
+  stats: Stats;
+  types: string[];
+  img: string;
+  name: string;
+  base_experience: number;
+  height: number;
+  id: number;
+  is_default: boolean;
+  order: number;
+  weight: number;
+}
+
+interface IPokemon {
+  pokemon: PokemonCardProps;
+}
+
+const PokemonCard: React.FC<IPokemon> = ({ pokemon }) => {
   return (
     <div className={s.root}>
       <div className={s.infoWrap}>
@@ -25,7 +49,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>{pokemon.types[0]}</span>
+          {pokemon.types.map((item) => {
+            return <span className={s.label}>{item}</span>;
+          })}
         </div>
       </div>
       <div className={s.pictureWrap}>

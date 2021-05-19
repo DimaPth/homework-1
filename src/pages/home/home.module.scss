@@ -2,6 +2,7 @@
 .root {
   min-height: 100vh;
   background: linear-gradient(180deg, $third 0%, $primary 100%);
+  overflow: hidden;
 }
 
 .contentWrap {
@@ -30,10 +31,4 @@
 
 .contentParallax {
   display: block;
-}
-
-.contentBtn {
-  width: 210px;
-  background: #73d677;
-  font-size: 23px;
 }

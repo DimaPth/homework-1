@@ -4,7 +4,7 @@ import cn from 'classnames';
 import s from './layout.module.scss';
 
 interface Icn {
-  className: string;
+  className?: string;
 }
 
 const Layout: React.FC<Icn> = ({ children, className = null }) => (

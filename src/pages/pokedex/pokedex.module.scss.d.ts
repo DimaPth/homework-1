@@ -3,6 +3,7 @@
 interface CssExports {
   'contentHeading': string;
   'contentWrap': string;
+  'pokemonWrap': string;
   'root': string;
 }
 export const cssExports: CssExports;

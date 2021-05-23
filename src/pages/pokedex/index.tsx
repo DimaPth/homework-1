@@ -1,26 +1,71 @@
-import React from 'react';
-import Header from '../../components/header';
+import React, { useEffect, useState } from 'react';
 import Heading from '../../components/heading';
 import Layout from '../../components/layout';
-import PokemonCard from '../../components/pokemonCard';
+import PokemonCard, { IPokemon } from '../../components/pokemonCard';
+import { PokemonCardProps } from '../../components/pokemonCard/PokemonCardProps';
+import req from '../../utils/request';
 import style from './pokedex.module.scss';
-import { pokemons } from '../../pokemons';
+
+interface DataProps {
+  total: number;
+  pokemons: PokemonCardProps[];
+  count: number;
+  limit: number;
+  offset: number;
+}
 
 interface PokedexPageProps {
   title: string;
 }
 
+const usePokemons = () => {
+  const [data, setData] = useState({} as DataProps);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const getPokemons = async () => {
+      setIsLoading(true);
+      try {
+        const result = await req('getPokemons');
+
+        setData(result);
+      } catch (e) {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getPokemons();
+  }, []);
+  return {
+    data,
+    isLoading,
+    isError,
+  };
+};
+
 const PokedexPage: React.FC<PokedexPageProps> = () => {
+  const { data, isLoading, isError } = usePokemons();
+  console.log(data);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Fucking Error</div>;
+  }
+
   return (
     <div className={style.root}>
-      <Header />
       <Layout className={style.contentWrap}>
         <Heading level="3" className={style.contentHeading}>
-          800 <b>Pokemons</b> for you to choose your favorite
+          {data.total} <b>Pokemons</b> for you to choose your favorite
         </Heading>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-          {pokemons.map((item) => {
-            return <PokemonCard pokemon={item} key={item.id} />;
+        <div className={style.pokemonWrap}>
+          {data.pokemons.map((pokemon) => {
+            return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
           })}
         </div>
       </Layout>

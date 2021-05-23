@@ -54,7 +54,7 @@ const PokedexPage: React.FC<PokedexPageProps> = () => {
   }
 
   if (isError) {
-    return <div>Fucking Error</div>;
+    return <div>Error</div>;
   }
 
   return (

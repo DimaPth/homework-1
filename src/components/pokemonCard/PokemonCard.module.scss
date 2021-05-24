@@ -82,7 +82,7 @@
 }
 
 .label {
-  background: #f28f16;
+  text-transform: capitalize;
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;
   height: 15px;
@@ -108,4 +108,40 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.grass,
+.bug {
+  background: #70a83b;
+}
+
+.poison,
+.psychic,
+.fairy,
+.ghost {
+  background: #a974bc;
+}
+
+.fire,
+.flying,
+.fighting {
+  background: #f76545;
+}
+
+.water,
+.ice {
+  background: #a2cff0;
+}
+
+.normal,
+.gosh {
+  background: #76aadb;
+}
+
+.ground {
+  background: #9b897b;
+}
+
+.electric {
+  background: #f7c545;
 }

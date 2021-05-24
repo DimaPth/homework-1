@@ -7,12 +7,6 @@ import { A, usePath } from 'hookrouter';
 import { GENERAL_MENU } from '../../routes';
 import cn from 'classnames';
 
-interface IMenu {
-  id: number;
-  value: string;
-  link: string;
-}
-
 const Header = () => {
   const path = usePath();
   return (

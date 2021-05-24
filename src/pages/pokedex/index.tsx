@@ -19,7 +19,7 @@ interface PokedexPageProps {
 }
 
 const usePokemons = () => {
-  const [data, setData] = useState({} as DataProps);
+  const [data, setData] = useState<DataProps | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -61,10 +61,10 @@ const PokedexPage: React.FC<PokedexPageProps> = () => {
     <div className={style.root}>
       <Layout className={style.contentWrap}>
         <Heading level="3" className={style.contentHeading}>
-          {data.total} <b>Pokemons</b> for you to choose your favorite
+          {data?.total} <b>Pokemons</b> for you to choose your favorite
         </Heading>
         <div className={style.pokemonWrap}>
-          {data.pokemons.map((pokemon) => {
+          {data?.pokemons.map((pokemon) => {
             return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
           })}
         </div>

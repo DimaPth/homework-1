@@ -2,6 +2,8 @@
 // Please do not change this file!
 interface CssExports {
   'bug': string;
+  'dark': string;
+  'dragon': string;
   'electric': string;
   'fairy': string;
   'fighting': string;
@@ -19,10 +21,12 @@ interface CssExports {
   'pictureWrap': string;
   'poison': string;
   'psychic': string;
+  'rock': string;
   'root': string;
   'statItem': string;
   'statValue': string;
   'statWrap': string;
+  'steel': string;
   'titleName': string;
   'water': string;
 }

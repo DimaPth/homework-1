@@ -3,15 +3,16 @@ import Heading from '../heading';
 import cn from 'classnames';
 
 import s from './PokemonCard.module.scss';
-import { PokemonCardProps } from './PokemonCardProps';
+import { PokemonCardProps } from '../../interface/PokemonCardProps';
 
 export interface IPokemon {
   pokemon: PokemonCardProps;
+  onClick: () => void;
 }
 
-const PokemonCard: React.FC<IPokemon> = ({ pokemon }) => {
+const PokemonCard: React.FC<IPokemon> = ({ pokemon, onClick }) => {
   return (
-    <div className={s.root}>
+    <div className={s.root} onClick={onClick}>
       <div className={s.infoWrap}>
         <Heading level="4" className={s.titleName}>
           {pokemon.name_clean}

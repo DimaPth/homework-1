@@ -124,7 +124,8 @@
 
 .fire,
 .flying,
-.fighting {
+.fighting,
+.dragon {
   background: #f76545;
 }
 
@@ -144,4 +145,10 @@
 
 .electric {
   background: #f7c545;
+}
+
+.steel,
+.dark,
+.rock {
+  background: #a1a1a1;
 }

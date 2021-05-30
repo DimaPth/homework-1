@@ -14,7 +14,7 @@ export const config = {
       getPokemonById: {
         method: 'GET',
         uri: {
-          pathname: `/api/v1/pokemon/:id`,
+          pathname: `/api/v1/pokemon/{id}`,
         },
       },
     },

@@ -5,6 +5,8 @@ import cn from 'classnames';
 import s from './PokemonCard.module.scss';
 import { PokemonCardProps } from '../../interface/PokemonCardProps';
 
+import { toCapitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
+
 export interface IPokemon {
   pokemon: PokemonCardProps;
   onClick: () => void;
@@ -31,7 +33,7 @@ const PokemonCard: React.FC<IPokemon> = ({ pokemon, onClick }) => {
           {pokemon.types.map((type) => {
             return (
               <span key={type} className={cn(s.label, s[type as keyof typeof s])}>
-                {type}
+                {toCapitalizeFirstLetter(type)}
               </span>
             );
           })}

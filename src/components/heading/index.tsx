@@ -6,7 +6,7 @@ interface Iheading {
   className?: string;
 }
 
-const Heading: React.FC<Iheading> = ({ children, level = '1', className = null }) => {
+const Heading: React.FC<Iheading> = ({ children, level = '1', className }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   return <Tag className={cn(className)}>{children}</Tag>;
 };

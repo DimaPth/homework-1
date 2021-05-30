@@ -5,7 +5,6 @@ import style from './pokemon.module.scss';
 import cn from 'classnames';
 import useData from '../../hook/useData';
 import { PokemonCardProps } from '../../interface/PokemonCardProps';
-import { Stats } from 'webpack';
 
 export interface PokemonProps {
   id: string | number;
@@ -20,7 +19,7 @@ const Pokemon: React.FC<PokemonProps> = ({ id }) => {
   return (
     <Layout className={style.root}>
       <div className={style.contentWrap}>
-        <div className={style.contentImg}>
+        <div className={cn(style.contentImg, style[data?.types[0] as keyof typeof style])}>
           <img src={data?.img} alt={data?.name_clean} />
         </div>
         <div className={style.contentStats}>
@@ -46,7 +45,9 @@ const Pokemon: React.FC<PokemonProps> = ({ id }) => {
           </div>
           <div className={style.statsWrap}>
             <div className={cn(style.bgWhite, style.stats)}>
-              <div>{data?.stats['defense']}</div>
+              <div>
+                <div>{data?.stats['defense']}</div>
+              </div>
               <span>Defense</span>
             </div>
             <div className={cn(style.bgWhite, style.stats)}>

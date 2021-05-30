@@ -4,7 +4,7 @@ interface IApiConfigUri {
   host: string;
   protocol: string;
   pathname: string;
-  query?: object;
+  query: object;
 }
 
 interface IEndPoint {

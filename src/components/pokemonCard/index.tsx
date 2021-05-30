@@ -17,7 +17,7 @@ const PokemonCard: React.FC<IPokemon> = ({ pokemon, onClick }) => {
     <div className={s.root} onClick={onClick}>
       <div className={s.infoWrap}>
         <Heading level="4" className={s.titleName}>
-          {pokemon.name_clean}
+          {toCapitalizeFirstLetter(pokemon.name)}
         </Heading>
         <div className={s.statWrap}>
           <div className={s.statItem}>

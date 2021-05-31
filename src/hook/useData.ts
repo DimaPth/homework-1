@@ -12,7 +12,6 @@ const useData = <T>(endpoint: ConfigEndpointType, query: object, deps: any[] = [
       setIsLoading(true);
       try {
         const result = await req<T>(endpoint, query);
-
         setData(result);
       } catch (e) {
         setIsError(true);

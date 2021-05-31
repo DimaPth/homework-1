@@ -59,4 +59,48 @@
   width: 85px;
   height: 69px;
   margin-bottom: 0;
+  flex-direction: column;
+}
+
+.grass,
+.bug {
+  background: #70a83b;
+}
+
+.poison,
+.psychic,
+.fairy,
+.ghost {
+  background: #a974bc;
+}
+
+.fire,
+.flying,
+.fighting,
+.dragon {
+  background: #f76545;
+}
+
+.water,
+.ice {
+  background: #a2cff0;
+}
+
+.normal,
+.gosh {
+  background: #76aadb;
+}
+
+.ground {
+  background: #9b897b;
+}
+
+.electric {
+  background: #f7c545;
+}
+
+.steel,
+.dark,
+.rock {
+  background: #a1a1a1;
 }

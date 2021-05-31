@@ -3,14 +3,33 @@
 interface CssExports {
   'abilitiesWrap': string;
   'bgWhite': string;
+  'bug': string;
   'contentImg': string;
   'contentStats': string;
   'contentTitle': string;
   'contentWrap': string;
+  'dark': string;
+  'dragon': string;
+  'electric': string;
+  'fairy': string;
+  'fighting': string;
+  'fire': string;
+  'flying': string;
+  'ghost': string;
+  'gosh': string;
+  'grass': string;
+  'ground': string;
   'hp': string;
+  'ice': string;
+  'normal': string;
+  'poison': string;
+  'psychic': string;
+  'rock': string;
   'root': string;
   'stats': string;
   'statsWrap': string;
+  'steel': string;
+  'water': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

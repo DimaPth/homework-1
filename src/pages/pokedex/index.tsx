@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Heading from '../../components/heading';
 import Layout from '../../components/layout';
 import PokemonCard from '../../components/pokemonCard';
-import useData from '../../hook/getData';
+import useData from '../../hook/useData';
 import UseDebounce from '../../hook/useDebounce';
 import { PokemonCardProps } from '../../interface/PokemonCardProps';
 import { DataProps } from '../../interface/pokemons';

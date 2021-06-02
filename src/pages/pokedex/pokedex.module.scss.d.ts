@@ -3,6 +3,7 @@
 interface CssExports {
   'contentHeading': string;
   'contentWrap': string;
+  'filter': string;
   'pokemonWrap': string;
   'root': string;
   'searchBar': string;

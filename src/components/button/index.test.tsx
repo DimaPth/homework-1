@@ -36,16 +36,27 @@ describe('Button', () => {
     expect(container?.textContent).toBe('Push me');
   });
 
-  it('render with props color = "yellow", size = "small", fullwidth, onClick', () => {
+  it('render with props color = "yellow"', () => {
     act(() => {
-      render(
-        <Button color="yellow" size="small" fullWidth onClick={() => {}}>
-          Push me
-        </Button>,
-        container,
-      );
+      render(<Button color="yellow">Push me</Button>, container);
     });
     expect(container?.innerHTML).toBeDefined();
-    expect(container?.querySelector('button')).not.toBeNull();
+    expect(container?.querySelector('button.yellow')).not.toBeNull();
+  });
+
+  it('render with props size = "small"', () => {
+    act(() => {
+      render(<Button size="small">Push me</Button>, container);
+    });
+    expect(container?.innerHTML).toBeDefined();
+    expect(container?.querySelector('button.small')).not.toBeNull();
+  });
+
+  it('render with props fullWitdh', () => {
+    act(() => {
+      render(<Button fullWidth>Push me</Button>, container);
+    });
+    expect(container?.innerHTML).toBeDefined();
+    expect(container?.querySelector('button.fullWidth')).not.toBeNull();
   });
 });

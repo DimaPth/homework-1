@@ -24,7 +24,9 @@ const Pokemon: React.FC<PokemonProps> = ({ id }) => {
           <img src={data?.img} alt={data?.name_clean} />
           {data?.types.map((type) => {
             return (
-              <div className={cn(style.types, style[type as keyof typeof style])}>{toCapitalizeFirstLetter(type)}</div>
+              <div key={type} className={cn(style.types, style[type as keyof typeof style])}>
+                {toCapitalizeFirstLetter(type)}
+              </div>
             );
           })}
         </div>

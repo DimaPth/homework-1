@@ -1,5 +1,7 @@
 import { navigate } from 'hookrouter';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Filter from '../../components/filter';
 import Heading from '../../components/heading';
 import Layout from '../../components/layout';
 import PokemonCard from '../../components/pokemonCard';
@@ -8,25 +10,30 @@ import UseDebounce from '../../hook/useDebounce';
 import { PokemonCardProps } from '../../interface/PokemonCardProps';
 import { DataProps } from '../../interface/pokemons';
 import { LinkEnum } from '../../routes';
+import { getPokemonTypes, getTypesAction, getPokemonTypesLoading } from '../../store/pokemon';
 import style from './pokedex.module.scss';
 
 export interface IQuery {
   name?: string;
   attack_from?: string | null;
   attack_to?: string;
+  limit?: string;
 }
 
 const PokedexPage: React.FC = () => {
+  const dispatch = useDispatch();
+  const types = useSelector(getPokemonTypes);
+  const isTypesLoading = useSelector(getPokemonTypesLoading);
+  console.log(types);
+  console.log(isTypesLoading);
   const [searchValue, setSearchValue] = useState('');
-  const attackFrom = React.useRef<HTMLInputElement>(null);
-  const attackTo = React.useRef<HTMLInputElement>(null);
-  const limit = React.useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState<IQuery>({});
 
   const debouncedValue = UseDebounce(searchValue, 700);
 
   const { data, isLoading, isError } = useData<DataProps>('getPokemons', query, [
     debouncedValue,
+    query.limit,
     query.attack_from,
     query.attack_to,
   ]);
@@ -39,15 +46,9 @@ const PokedexPage: React.FC = () => {
     }));
   };
 
-  const handleAttackFromChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setQuery((state: IQuery) => ({
-      ...state,
-      limit: limit?.current?.value,
-      attack_from: attackFrom?.current?.value,
-      attack_to: attackTo?.current?.value,
-    }));
-  };
+  useEffect(() => {
+    dispatch(getTypesAction());
+  }, []);
 
   if (isError) {
     return <div>Error</div>;
@@ -68,16 +69,8 @@ const PokedexPage: React.FC = () => {
             placeholder="Encuentra tu pokémon..."
           />
         </div>
-        <form className={style.filter}>
-          <label>Limit:</label>
-          <input type="text" ref={limit} />
-          <br />
-          <label>Attack from:</label>
-          <input type="text" ref={attackFrom} />
-          <label>to:</label>
-          <input type="text" ref={attackTo} />
-          <button onClick={handleAttackFromChange}>Accept</button>
-        </form>
+        {/* <div>{isTypesLoading ? <span>loading...</span> : types?.map((item) => <div>{item}</div>)}</div> */}
+        <Filter setQuery={setQuery} />
         <div className={style.pokemonWrap}>
           {!isLoading &&
             data &&

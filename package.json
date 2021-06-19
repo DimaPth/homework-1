@@ -4,7 +4,11 @@
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "start": "cross-env NODE_ENV=development webpack-dev-server"
+    "start": "node dist/server.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "lint": "npx eslint ./src",
+    "test": "npx jest",
+    "test:watch": "npx jest --watch"
   },
   "repository": "https://github.com/DimaPth/homework-1.git",
   "license": "MIT",

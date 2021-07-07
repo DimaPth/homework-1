@@ -1,2 +1,2 @@
-# homework-1
+# Pokemons
 react marathon
